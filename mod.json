@@ -1,0 +1,23 @@
+{
+	"geode": "4.9.0",
+	"gd": {
+		"win": "2.2074",
+		"android": "2.2074",
+		"mac": "2.2074",
+		"ios": "2.2074"
+	},
+	"id": "yolabuns.tutorial",
+	"name": "tutorial",
+	"version": "v1.0.0",
+	"developer": "yolabuns",
+	"description": "a button or something",
+	"dependencies": {
+		"geode.node-ids": ">=v1.20.1"
+	},
+	"resources": {"sprites": [
+		"res/*.png"
+	],
+	"files": [
+		"res/*.mp3"
+	]}
+}
