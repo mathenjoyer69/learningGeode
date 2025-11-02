@@ -48,6 +48,6 @@ bool YolaLayer::init() {
 }
 
 void YolaLayer::onBackButton(CCObject* sender) {
-    CCDirector::sharedDirector()->popScene();
+    CCDirector::sharedDirector()->popSceneWithTransition(0.5f, PopTransition::kPopTransitionFade);
     sharedInstance = nullptr;
 }
