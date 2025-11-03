@@ -13,10 +13,9 @@ YolaLayer* YolaLayer::create() {
 }
 
 bool YolaLayer::init() {
-    if (!CCLayer::init()) {
-        return false;
-    }
-    
+    if (!CCLayer::init()) {return false;}
+    if (sharedInstance == nullptr) {sharedInstance = this;}
+
     auto bgMenu = CCMenu::create();
     bgMenu->setPosition({0, 0});
     this->addChild(bgMenu);
@@ -41,8 +40,23 @@ bool YolaLayer::init() {
         this,
         menu_selector(YolaLayer::onBackButton)
     );
+
+    //pong
     backBtn->setPosition({16.25, 20});
     BackMenu->addChild(backBtn);
+
+    auto pongMenu = CCMenu::create();
+    pongMenu->setPosition({0, 0});
+    this->addChild(pongMenu);
+    auto pongSprite1 = CCSprite::create("yolapork.png"_spr);
+    pongSprite1->setPosition({winSize.width-50, winSize.height / 2});
+    pongSprite1->setColor({255, 0, 0});
+    pongMenu->addChild(pongSprite1);
+
+    auto pongSprite2 = CCSprite::create("yolapork.png"_spr);
+    pongSprite2->setPosition({50, winSize.height / 2});
+    pongSprite2->setColor({0, 0, 255});
+    pongMenu->addChild(pongSprite2);
 
     return true;
 }

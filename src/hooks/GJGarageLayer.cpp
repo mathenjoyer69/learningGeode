@@ -25,6 +25,7 @@ bool MyGJGarageLayer::init() {
 void MyGJGarageLayer::onYolaporkButton(CCObject*) {
     m_fields->yolaporkButton->setScaleY(0.675f);
     auto scene = CCScene::create();
+    scene->setID("yola-scene");
     auto yolaLayer = YolaLayer::create();
     scene->addChild(yolaLayer);
     CCDirector::sharedDirector()->pushScene(CCTransitionFade::create(0.5f, scene));
