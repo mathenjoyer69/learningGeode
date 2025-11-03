@@ -18,6 +18,7 @@ bool YolaLayer::init() {
     if (sharedInstance == nullptr) {sharedInstance = this;}
 
     auto bgMenu = CCMenu::create();
+    bgMenu->setID("bg-menu");
     bgMenu->setPosition({0, 0});
     this->addChild(bgMenu);
     auto bgSprite = CCSprite::create("yolapork.png"_spr);
@@ -26,7 +27,7 @@ bool YolaLayer::init() {
     bgSprite->setPosition({m_winSize .width / 2, m_winSize .height / 2});
     bgSprite->setScaleY(4.0f);
     bgSprite->setScaleX(11.5f);
-    bgSprite->setID("bg-menu");
+    bgSprite->setID("bg-sprite");
     bgMenu->addChild(bgSprite);
 
     auto BackMenu = CCMenu::create();
@@ -48,20 +49,24 @@ bool YolaLayer::init() {
     BackMenu->addChild(backBtn);
 
     auto pongMenu = CCMenu::create();
+    pongMenu->setID("pong-menu");
     pongMenu->setPosition({0, 0});
     this->addChild(pongMenu);
 
     m_rightPong = CCSprite::create("yolapork.png"_spr);
+    m_rightPong->setID("right-pong");
     m_rightPong->setPosition({m_winSize .width-50, m_winSize .height / 2});
     m_rightPong->setColor({255, 0, 0});
     pongMenu->addChild(m_rightPong);
 
     m_leftPong = CCSprite::create("yolapork.png"_spr);
+    m_leftPong->setID("left-pong");
     m_leftPong->setPosition({50, m_winSize .height / 2});
     m_leftPong->setColor({0, 0, 255});
     pongMenu->addChild(m_leftPong);
 
     m_ball = CCSprite::create("yolapork.png"_spr);
+    m_ball->setID("ball");
     m_ball->setPosition({m_winSize .width / 2, m_winSize .height / 2});
     m_ball->setColor({255, 255, 255});
     m_ball->setScaleY(0.225f);
