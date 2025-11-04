@@ -6,12 +6,11 @@ bool MyGJListLayer::init(BoomListView* listView, const char* title, cocos2d::ccC
     if (auto node = this->getChildByID("list-view")) {
         if (auto list = typeinfo_cast<CustomListView*>(node)) {
             for (auto* obj : CCArrayExt<CCObject*>(list->m_entries)) {
-                if (auto score = typeinfo_cast<GJUserScore*>(obj)) {
-                    log::info("friend: {}", score->m_userName);
+                if (auto s = typeinfo_cast<GJUserScore*>(obj)) {
+                    log::info("friend: {}", s->m_userName);
                 }
             }
         }
     }
-
     return true;
 }
