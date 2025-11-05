@@ -8,5 +8,6 @@ using namespace geode::prelude;
 
 class $modify(MyProfilePage, ProfilePage) {
     public:
-        virtual bool init(int acountID, bool ownProfile);
-}
+        virtual bool init(int accountID, bool ownProfile);
+        virtual void onAddFriend(CCObject* sender);
+};
