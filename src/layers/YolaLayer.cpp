@@ -102,8 +102,7 @@ void YolaLayer::updateBall(float dt) {
 
     const float radius = 10.0f;
 
-    if (pos.y < radius || pos.y > m_winSize.height - radius)
-        m_ballVel.y *= -1.0f;
+    if (pos.y < radius || pos.y > m_winSize.height - radius) {m_ballVel.y *= -1.0f;}
 
     auto rightPos = m_rightPong->getPosition();
     rightPos.y += (m_ball->getPositionY() - rightPos.y) * 0.05f;
@@ -113,18 +112,11 @@ void YolaLayer::updateBall(float dt) {
     auto mouseY = getMousePos().y;
     leftPos.y += (mouseY - leftPos.y) * 0.2f;
     m_leftPong->setPosition(leftPos);
-
     auto ballBB = m_ball->boundingBox();
     auto leftBB = m_leftPong->boundingBox();
     auto rightBB = m_rightPong->boundingBox();
 
-    if (ballBB.intersectsRect(leftBB) && m_ballVel.x < 0) {
-        m_ballVel.x *= -1.0f;
-    }
-    if (ballBB.intersectsRect(rightBB) && m_ballVel.x > 0) {
-        m_ballVel.x *= -1.0f;
-    }
-
-    if (pos.x < 0 || pos.x > m_winSize.width)
-        resetBall(pos.x > m_winSize.width);
+    if (ballBB.intersectsRect(leftBB) && m_ballVel.x < 0) {m_ballVel.x *= -1.0f;}
+    if (ballBB.intersectsRect(rightBB) && m_ballVel.x > 0) {m_ballVel.x *= -1.0f;}
+    if (pos.x < 0 || pos.x > m_winSize.width) {resetBall(pos.x > m_winSize.width);}
 }
