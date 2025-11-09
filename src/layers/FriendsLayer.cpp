@@ -16,6 +16,8 @@ bool FriendsLayer::init() {
     if (!CCLayer::init()) {return false;}
     if (sharedInstance == nullptr) {sharedInstance = this;}
 
+    this->setKeypadEnabled(true);
+    
     auto bgMenu = CCMenu::create();
     bgMenu->setID("bg-menu");
     bgMenu->setPosition({0, 0});
@@ -24,8 +26,14 @@ bool FriendsLayer::init() {
     auto m_winSize  = CCDirector::sharedDirector()->getWinSize();
 
     auto friendsMenu = CCMenu::create();
-    friendsMenu->setPosition({0, 0});
     friendsMenu->setID("friends-menu");
     this->addChild(friendsMenu);
     return true;
 }
+
+void FriendsLayer::keyBackClicked() {
+    CCDirector::sharedDirector()->popSceneWithTransition(0.5f, PopTransition::kPopTransitionFade);
+    sharedInstance = nullptr;
+}
+
+void FriendsLayer::onBackClicked(CCObject*) {keyBackClicked();}

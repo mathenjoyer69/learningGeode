@@ -4,15 +4,15 @@
 bool MyGJListLayer::init(BoomListView* listView, const char* title, cocos2d::ccColor4B color, float width, float height, int p5) {
     if (!GJListLayer::init(listView, title, color, width, height, p5)) {return false;}
 
-    // if (auto node = this->getChildByID("list-view")) {
-    //     if (auto list = typeinfo_cast<CustomListView*>(node)) {
-    //         for (auto* obj : CCArrayExt<CCObject*>(list->m_entries)) {
-    //             if (auto s = typeinfo_cast<GJUserScore*>(obj)) {
-    //                 log::info("friend: {}", s->m_userName);
-    //             }
-    //         }
-    //     }
-    // }
+    if (auto node = this->getChildByID("list-view")) {
+        if (auto list = typeinfo_cast<CustomListView*>(node)) {
+            for (auto* obj : CCArrayExt<CCObject*>(list->m_entries)) {
+                if (auto s = typeinfo_cast<GJUserScore*>(obj)) {
+                    log::info("friend: {}", s->m_userName);
+                }
+            }
+        }
+    }
     auto menu = CCMenu::create();
     menu->setPosition({0, 0});
     menu->setID("my-menu");
@@ -23,7 +23,7 @@ bool MyGJListLayer::init(BoomListView* listView, const char* title, cocos2d::ccC
         this,
         menu_selector(MyGJListLayer::openLayer)
     );
-    friendLyrBtn->setPosition({476.75, 11.25});
+    friendLyrBtn->setPosition({435.75, -18.75});
     menu->addChild(friendLyrBtn);
     this->addChild(menu);
     return true;

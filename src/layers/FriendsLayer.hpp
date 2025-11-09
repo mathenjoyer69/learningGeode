@@ -7,9 +7,10 @@ using namespace geode::prelude;
 class FriendsLayer : public CCLayer {
     public:
         static FriendsLayer* create();
-        //void onBackButton(CCObject*);
+        void onBackClicked(CCObject*);
         
     private:
         virtual bool init();
         static FriendsLayer* sharedInstance;
+        virtual void keyBackClicked();
 };
