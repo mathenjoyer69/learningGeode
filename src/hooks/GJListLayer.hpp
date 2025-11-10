@@ -8,5 +8,4 @@ using namespace geode::prelude;
 
 class $modify(MyGJListLayer, GJListLayer) {
     bool init(BoomListView* listView, const char* title, cocos2d::ccColor4B color, float width, float height, int p5);
-    void openLayer(CCObject*);
 };
